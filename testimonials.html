@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="See what our clients say about Aarvi IT Solutions – real feedback from businesses who rely on our software development, AMC, and IT support services." />
+  <title>Testimonials – Aarvi IT Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Star rating ── */
+    .stars { color:#f59e0b; font-size:.95rem; letter-spacing:2px; margin-bottom:.75rem; }
+
+    /* ── Testimonial card override – bigger on this page ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    @media(max-width:900px){ .testimonials-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:560px){ .testimonials-grid{ grid-template-columns:1fr; } }
+
+    .tcard {
+      background: var(--white);
+      border: 1px solid rgba(13,43,107,.1);
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      position: relative;
+      transition: box-shadow .3s, transform .3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .tcard:hover { box-shadow: 0 12px 32px rgba(13,43,107,.13); transform: translateY(-5px); }
+    .tcard::before {
+      content: "\f10d";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      top: 1.4rem; right: 1.6rem;
+      font-size: 2rem;
+      color: rgba(37,99,235,.08);
+      line-height: 1;
+    }
+    .tcard-body { flex: 1; }
+    .tcard-body p {
+      font-size: .95rem;
+      line-height: 1.75;
+      color: #475569;
+      font-style: italic;
+    }
+    .tcard-author {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      margin-top: 1.4rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(13,43,107,.08);
+    }
+    .tcard-avatar {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-light), var(--accent));
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .tcard-author-info strong { display:block; color:var(--primary); font-size:.92rem; }
+    .tcard-author-info span  { font-size:.8rem; color:#94a3b8; }
+
+    /* ── Trust bar ── */
+    .trust-bar {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 100%);
+      padding: 3.5rem 0;
+      color: #fff;
+    }
+    .trust-bar .stats-row { gap: 2.5rem; }
+    .trust-bar .stat-val  { color: #fff; }
+    .trust-bar .stat-label{ color: rgba(255,255,255,.75); }
+    .trust-bar .stat-divider{ background:rgba(255,255,255,.2); }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div class="container">
+      <nav class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon">AIS</div>
+          <div class="logo-text-wrap">
+            <span class="logo-name">Aarvi IT Solutions</span>
+            <span class="logo-tagline">IT Services &amp; Consulting</span>
+          </div>
+        </a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="testimonials.html" class="active">Testimonials</a>
+          <a href="careers.html">Careers</a>
+          <a href="contact.html" class="nav-cta">Contact Us</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== PAGE BANNER ===== -->
+  <section class="page-banner">
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> Testimonials</p>
+      <h1 class="heading-xl">Client Testimonials</h1>
+      <p class="banner-sub">Real words from the businesses we've helped grow and stay running.</p>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-item animate-up">
+          <span class="stat-val" data-count="200" data-suffix="+">200+</span>
+          <span class="stat-label">Projects Delivered</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item animate-up delay-1">
+          <span class="stat-val" data-count="98" data-suffix="%">98%</span>
+          <span class="stat-label">Client Satisfaction</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item animate-up delay-2">
+          <span class="stat-val" data-count="50" data-suffix="+">50+</span>
+          <span class="stat-label">Long-term Clients</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item animate-up delay-3">
+          <span class="stat-val" data-count="8" data-suffix="+ yrs">8+ yrs</span>
+          <span class="stat-label">Of Excellence</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS GRID ===== -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="section-label">REVIEWS</span>
+        <h2 class="heading-lg" style="margin-top:.6rem;">What Our Clients Say</h2>
+        <p class="section-sub" style="max-width:520px;margin:1rem auto 0;">We let the results speak. Here's what clients across industries have to say about working with us.</p>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <!-- Testimonial 1 -->
+        <div class="tcard animate-up">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <div class="tcard-body">
+            <p>"Aarvi IT Solutions transformed our legacy billing system into a modern cloud application in under 4 months. The team's communication throughout was exceptional — we always knew exactly where the project stood."</p>
+          </div>
+          <div class="tcard-author">
+            <div class="tcard-avatar">AK</div>
+            <div class="tcard-author-info">
+              <strong>Anjali Kapoor</strong>
+              <span>CEO, Kapoor Retail Group</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="tcard animate-up delay-1">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <div class="tcard-body">
+            <p>"The AMC plan from Aarvi has been a game-changer for our 60-person office. Downtime has dropped to near zero and when something does go wrong, they respond within the hour — every single time."</p>
+          </div>
+          <div class="tcard-author">
+            <div class="tcard-avatar">RS</div>
+            <div class="tcard-author-info">
+              <strong>Rohit Sharma</strong>
+              <span>IT Head, NovaTech Industries</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="tcard animate-up delay-2">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+          <div class="tcard-body">
+            <p>"We hired Aarvi to build our logistics tracking portal and they delivered a polished, mobile-friendly product on time and on budget. Their developers are genuinely talented and they actually care about quality."</p>
+          </div>
+          <div class="tcard-author">
+            <div class="tcard-avatar">PM</div>
+            <div class="tcard-author-info">
+              <strong>Priya Mehta</strong>
+              <span>Operations Director, SwiftMove Logistics</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="tcard animate-up">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <div class="tcard-body">
+            <p>"Switched our 3 locations to Aarvi's IT Support plan 2 years ago. The proactive monitoring has caught issues before they became problems multiple times. Best investment we've made in IT."</p>
+          </div>
+          <div class="tcard-author">
+            <div class="tcard-avatar">SK</div>
+            <div class="tcard-author-info">
+              <strong>Suresh Kumar</strong>
+              <span>Managing Director, Apex Clinic Network</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="tcard animate-up delay-1">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <div class="tcard-body">
+            <p>"The custom ERP they built for us integrates inventory, invoicing, and HR in a single dashboard. Our team picked it up in a day. Post-launch support has been prompt and the code is clean — our internal dev was impressed."</p>
+          </div>
+          <div class="tcard-author">
+            <div class="tcard-avatar">NJ</div>
+            <div class="tcard-author-info">
+              <strong>Nisha Jain</strong>
+              <span>Founder, BrightEdge Manufacturing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 6 -->
+        <div class="tcard animate-up delay-2">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <div class="tcard-body">
+            <p>"What sets Aarvi apart is honesty. They told us our initial scope was over-engineered and suggested a leaner MVP approach. We launched earlier, saved budget, and still got exactly the product we needed."</p>
+          </div>
+          <div class="tcard-author">
+            <div class="tcard-avatar">VR</div>
+            <div class="tcard-author-info">
+              <strong>Vivek Rao</strong>
+              <span>CTO, FinEase Payments</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.testimonials-grid -->
+    </div>
+  </section>
+
+  <!-- ===== LOGOS / TRUSTED BY ===== -->
+  <section class="section" style="background:var(--light);padding-top:3rem;padding-bottom:3rem;">
+    <div class="container" style="text-align:center;">
+      <p style="font-size:.8rem;font-weight:700;letter-spacing:2px;color:#94a3b8;text-transform:uppercase;margin-bottom:2rem;">Trusted by companies across industries</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2.5rem 3.5rem;">
+        <span style="font-size:1.05rem;font-weight:700;color:#94a3b8;">Kapoor Retail Group</span>
+        <span style="font-size:1.05rem;font-weight:700;color:#94a3b8;">NovaTech Industries</span>
+        <span style="font-size:1.05rem;font-weight:700;color:#94a3b8;">SwiftMove Logistics</span>
+        <span style="font-size:1.05rem;font-weight:700;color:#94a3b8;">Apex Clinic Network</span>
+        <span style="font-size:1.05rem;font-weight:700;color:#94a3b8;">BrightEdge Manufacturing</span>
+        <span style="font-size:1.05rem;font-weight:700;color:#94a3b8;">FinEase Payments</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container" style="text-align:center;">
+      <h2 class="heading-lg" style="color:#fff;margin-bottom:.75rem;">Ready to become our next success story?</h2>
+      <p style="color:rgba(255,255,255,.8);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto;">Let's discuss your project. We'll show you exactly how we can help before you commit to anything.</p>
+      <a href="contact.html" class="btn btn-outline">Get a Free Consultation <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="margin-bottom:0;">
+            <div class="logo-icon">AIS</div>
+            <div class="logo-text-wrap">
+              <span class="logo-name">Aarvi IT Solutions</span>
+              <span class="logo-tagline">IT Services &amp; Consulting</span>
+            </div>
+          </a>
+          <p>Your trusted technology partner for custom software development, AMC support, and IT services. Delivering quality since 2017.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="services.html#development">Software Development</a></li>
+            <li><a href="services.html#amc">AMC &amp; Support</a></li>
+            <li><a href="services.html#itsupport">IT Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul class="footer-contact-list">
+            <li><i class="fas fa-map-marker-alt"></i><span>Hyderabad, Telangana, India &ndash; 500032</span></li>
+            <li><i class="fas fa-phone-alt"></i><a href="tel:+917075995474">+91 7075995474</a></li>
+            <li><i class="fas fa-envelope"></i><a href="mailto:sales@aarviitsolutions.com">sales@aarviitsolutions.com</a></li>
+            <li><i class="fas fa-clock"></i><span>Mon&ndash;Sat, 9 AM &ndash; 6 PM</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Aarvi IT Solutions. All rights reserved.</span>
+        <span><a href="terms.html">Terms &amp; Conditions</a> &nbsp;|&nbsp; <a href="#">Privacy Policy</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/917075995474" class="whatsapp-fab" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

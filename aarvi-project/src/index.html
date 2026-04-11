@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Aarvi IT Solutions – Build. Scale. Support.</title>
+  <base href="/" />
+
+  <!-- Viewport & theme -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d2b6b" />
+
+  <!-- SEO -->
+  <meta name="description" content="Aarvi IT Solutions – Custom software development, Annual Maintenance &amp; Support (AMC), and IT support services for businesses of all sizes. Trusted technology partner since 2017." />
+  <meta name="keywords" content="software development, AMC support, IT services, custom web applications, annual maintenance contract, technical support, New Delhi" />
+  <meta name="author" content="Aarvi IT Solutions" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Aarvi IT Solutions – Build. Scale. Support." />
+  <meta property="og:description" content="Custom software, AMC contracts, and IT support services for growing businesses. Trusted since 2017." />
+  <meta property="og:url" content="https://aarvitsolutions.com/" />
+  <meta property="og:site_name" content="Aarvi IT Solutions" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aarvi IT Solutions – Build. Scale. Support." />
+  <meta name="twitter:description" content="Custom software, AMC contracts, and IT support services for growing businesses." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts: Inter + Plus Jakarta Sans -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome 6.5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- App shell loading styles -->
+  <style>
+    /* Prevent flash of unstyled content */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #060e22;
+      color: #f1f5f9;
+    }
+
+    /* App-shell loading spinner – visible until Angular bootstraps */
+    .app-shell-loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: #060e22;
+      z-index: 9999;
+      transition: opacity 0.4s ease;
+    }
+    .app-shell-loading .logo-mark {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #1a3e8f, #2563eb);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #fff;
+      letter-spacing: -0.5px;
+    }
+    .app-shell-loading .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid rgba(37, 99, 235, 0.2);
+      border-top-color: #3b82f6;
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+    }
+    .app-shell-loading p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.5px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Hide spinner once app-root has content */
+    app-root:not(:empty) ~ .app-shell-loading,
+    app-root:not(:empty) + .app-shell-loading {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Angular application root -->
+  <app-root></app-root>
+
+  <!-- Loading indicator shown until Angular bootstraps -->
+  <div class="app-shell-loading" id="appShellLoading">
+    <div class="logo-mark">AIS</div>
+    <div class="spinner"></div>
+    <p>Aarvi IT Solutions</p>
+  </div>
+
+  <noscript>
+    <style>
+      body { background: #0d2b6b; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 2rem; }
+    </style>
+    <div>
+      <strong>JavaScript is required</strong><br />
+      Please enable JavaScript to use Aarvi IT Solutions web application.
+    </div>
+  </noscript>
+
+</body>
+</html>

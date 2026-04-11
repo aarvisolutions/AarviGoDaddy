@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Join Aarvi IT Solutions – explore open positions in software development, IT support, and project management. Build your career with us." />
+  <title>Careers – Aarvi IT Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Job cards ── */
+    .job-meta { display:flex; flex-wrap:wrap; gap:.5rem; margin:.75rem 0; }
+    .job-tag  { font-size:.75rem; font-weight:600; padding:.25rem .65rem; border-radius:20px; background:rgba(37,99,235,.1); color:var(--primary-light); }
+    .job-tag.remote  { background:rgba(16,185,129,.12); color:#059669; }
+    .job-tag.onsite  { background:rgba(245,158,11,.12);  color:#d97706; }
+    .job-actions { display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1.2rem; }
+
+    /* ── Why work with us ── */
+    .why-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+    @media(max-width:860px){ .why-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:540px){ .why-grid{ grid-template-columns:1fr; } }
+    .why-card {
+      background:var(--white); border:1px solid rgba(13,43,107,.1);
+      border-radius:14px; padding:1.6rem 1.4rem; text-align:center;
+      transition:box-shadow .3s,transform .3s;
+    }
+    .why-card:hover { box-shadow:0 8px 28px rgba(13,43,107,.12); transform:translateY(-4px); }
+    .why-card-icon {
+      width:56px; height:56px; border-radius:14px;
+      background:linear-gradient(135deg,var(--primary-light),var(--accent));
+      color:#fff; display:flex; align-items:center; justify-content:center;
+      font-size:1.3rem; margin:0 auto 1rem;
+    }
+    .why-card h4 { color:var(--primary); margin-bottom:.4rem; font-size:1rem; }
+    .why-card p  { font-size:.87rem; color:#64748b; line-height:1.6; }
+
+    /* ── Apply form ── */
+    .apply-wrap {
+      background:var(--white); border:1px solid rgba(13,43,107,.1);
+      border-radius:16px; padding:2.5rem; box-shadow:0 4px 20px rgba(13,43,107,.07);
+      max-width:700px; margin:0 auto;
+    }
+    @media(max-width:600px){ .apply-wrap{ padding:1.5rem 1.2rem; } }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="nav-inner container">
+      <a href="index.html" class="logo-wrap">
+        <div class="logo-icon">AIS</div>
+        <div class="logo-text">
+          <span class="logo-name">Aarvi IT Solutions</span>
+          <span class="logo-tag">Technology Partner</span>
+        </div>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="careers.html" class="active">Careers</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== PAGE BANNER ===== -->
+  <section class="page-banner">
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> Careers</p>
+      <h1 class="heading-xl">Work With Us</h1>
+      <p class="banner-sub">Join a passionate team building software that makes a real difference.</p>
+    </div>
+  </section>
+
+  <!-- ===== WHY WORK WITH US ===== -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="section-label">WHY AARVI</span>
+        <h2 class="heading-lg" style="margin-top:.6rem;">A Place Where You Grow</h2>
+        <p class="section-sub" style="max-width:560px;margin:1rem auto 0;">We invest in people. From day one, you'll work on meaningful projects, learn continuously, and be valued for your contribution.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card animate-up">
+          <div class="why-card-icon"><i class="fas fa-chart-line"></i></div>
+          <h4>Career Growth</h4>
+          <p>Structured career paths with regular performance reviews and promotion cycles.</p>
+        </div>
+        <div class="why-card animate-up delay-1">
+          <div class="why-card-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h4>Continuous Learning</h4>
+          <p>Sponsored certifications, tech talks, and an internal learning budget for every employee.</p>
+        </div>
+        <div class="why-card animate-up delay-2">
+          <div class="why-card-icon"><i class="fas fa-laptop-house"></i></div>
+          <h4>Flexible Work</h4>
+          <p>Hybrid and remote options so you can do your best work wherever you are most productive.</p>
+        </div>
+        <div class="why-card animate-up delay-3">
+          <div class="why-card-icon"><i class="fas fa-hands-helping"></i></div>
+          <h4>Impactful Work</h4>
+          <p>Build products that real businesses rely on every day — your code ships to production.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OPEN POSITIONS ===== -->
+  <section class="section" style="background:var(--light);">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <span class="section-label">OPEN ROLES</span>
+        <h2 class="heading-lg" style="margin-top:.6rem;">Current Openings</h2>
+        <p class="section-sub" style="max-width:520px;margin:1rem auto 0;">Don't see a perfect fit? Send us your résumé anyway — we're always looking for talented people.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+
+        <!-- Job 1 -->
+        <div class="job-card animate-up">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;">
+            <div>
+              <h3 style="color:var(--primary);margin-bottom:.3rem;">Full Stack Developer</h3>
+              <p style="color:#64748b;font-size:.9rem;">Engineering &nbsp;&middot;&nbsp; Hyderabad / Remote</p>
+            </div>
+            <span style="background:rgba(16,185,129,.12);color:#059669;font-size:.78rem;font-weight:700;padding:.3rem .8rem;border-radius:20px;">Hiring</span>
+          </div>
+          <div class="job-meta">
+            <span class="job-tag remote">Remote</span>
+            <span class="job-tag">Full-time</span>
+            <span class="job-tag">2–4 yrs exp</span>
+            <span class="job-tag">React &amp; Node.js</span>
+          </div>
+          <p style="font-size:.9rem;color:#475569;line-height:1.7;">Design and build scalable web applications end-to-end. You'll work across the stack — from React front-ends to Node.js/Express APIs and PostgreSQL databases.</p>
+          <div class="job-actions">
+            <a href="#apply" class="btn btn-primary">Apply Now <i class="fas fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn btn-outline">Ask a Question</a>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="job-card animate-up delay-1">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;">
+            <div>
+              <h3 style="color:var(--primary);margin-bottom:.3rem;">Frontend Developer</h3>
+              <p style="color:#64748b;font-size:.9rem;">Engineering &nbsp;&middot;&nbsp; Hyderabad / Hybrid</p>
+            </div>
+            <span style="background:rgba(16,185,129,.12);color:#059669;font-size:.78rem;font-weight:700;padding:.3rem .8rem;border-radius:20px;">Hiring</span>
+          </div>
+          <div class="job-meta">
+            <span class="job-tag onsite">Hybrid</span>
+            <span class="job-tag">Full-time</span>
+            <span class="job-tag">1–3 yrs exp</span>
+            <span class="job-tag">React / Vue</span>
+          </div>
+          <p style="font-size:.9rem;color:#475569;line-height:1.7;">Craft pixel-perfect, accessible user interfaces. You have a keen eye for design, write clean semantic HTML/CSS, and thrive in collaborative sprints.</p>
+          <div class="job-actions">
+            <a href="#apply" class="btn btn-primary">Apply Now <i class="fas fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn btn-outline">Ask a Question</a>
+          </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="job-card animate-up delay-2">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;">
+            <div>
+              <h3 style="color:var(--primary);margin-bottom:.3rem;">IT Support Engineer</h3>
+              <p style="color:#64748b;font-size:.9rem;">Operations &nbsp;&middot;&nbsp; Hyderabad (On-site)</p>
+            </div>
+            <span style="background:rgba(16,185,129,.12);color:#059669;font-size:.78rem;font-weight:700;padding:.3rem .8rem;border-radius:20px;">Hiring</span>
+          </div>
+          <div class="job-meta">
+            <span class="job-tag onsite">On-site</span>
+            <span class="job-tag">Full-time</span>
+            <span class="job-tag">0–2 yrs exp</span>
+            <span class="job-tag">Networking</span>
+          </div>
+          <p style="font-size:.9rem;color:#475569;line-height:1.7;">Provide first and second-line IT support to our clients. Diagnose hardware/software issues, manage AMC service tickets, and maintain SLA compliance.</p>
+          <div class="job-actions">
+            <a href="#apply" class="btn btn-primary">Apply Now <i class="fas fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn btn-outline">Ask a Question</a>
+          </div>
+        </div>
+
+        <!-- Job 4 -->
+        <div class="job-card animate-up delay-3">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;">
+            <div>
+              <h3 style="color:var(--primary);margin-bottom:.3rem;">Project Manager</h3>
+              <p style="color:#64748b;font-size:.9rem;">Management &nbsp;&middot;&nbsp; Hyderabad / Remote</p>
+            </div>
+            <span style="background:rgba(16,185,129,.12);color:#059669;font-size:.78rem;font-weight:700;padding:.3rem .8rem;border-radius:20px;">Hiring</span>
+          </div>
+          <div class="job-meta">
+            <span class="job-tag remote">Remote</span>
+            <span class="job-tag">Full-time</span>
+            <span class="job-tag">3–5 yrs exp</span>
+            <span class="job-tag">Agile / Scrum</span>
+          </div>
+          <p style="font-size:.9rem;color:#475569;line-height:1.7;">Own the delivery of multiple software projects from discovery through launch. Coordinate cross-functional teams, manage stakeholders, and keep everything on schedule and within budget.</p>
+          <div class="job-actions">
+            <a href="#apply" class="btn btn-primary">Apply Now <i class="fas fa-arrow-right"></i></a>
+            <a href="contact.html" class="btn btn-outline">Ask a Question</a>
+          </div>
+        </div>
+
+      </div><!-- /jobs list -->
+    </div>
+  </section>
+
+  <!-- ===== APPLICATION FORM ===== -->
+  <section class="section" id="apply">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <span class="section-label">APPLY</span>
+        <h2 class="heading-lg" style="margin-top:.6rem;">Send Your Application</h2>
+        <p class="section-sub" style="max-width:500px;margin:1rem auto 0;">Fill out the form below and attach your résumé. We review every application and respond within 5 business days.</p>
+      </div>
+
+      <div class="apply-wrap animate-up">
+        <form name="careers" data-netlify="true" data-validate>
+          <input type="hidden" name="form-name" value="careers" />
+
+          <div class="grid-2" style="gap:1rem;">
+            <div class="form-group">
+              <label for="cname">Full Name</label>
+              <input type="text" id="cname" name="fullname" placeholder="Ravi Kumar" data-required />
+            </div>
+            <div class="form-group">
+              <label for="cphone">Phone Number</label>
+              <input type="tel" id="cphone" name="phone" placeholder="+91 XXXXX XXXXX" data-required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cemail">Email Address</label>
+            <input type="email" id="cemail" name="email" placeholder="ravi@example.com" data-required />
+          </div>
+
+          <div class="form-group">
+            <label for="crole">Role Applying For</label>
+            <select id="crole" name="role">
+              <option value="" disabled selected>Select a position…</option>
+              <option>Full Stack Developer</option>
+              <option>Frontend Developer</option>
+              <option>IT Support Engineer</option>
+              <option>Project Manager</option>
+              <option>Other / General Application</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="cresume">Résumé / CV Link</label>
+            <input type="url" id="cresume" name="resume_link" placeholder="https://drive.google.com/… or LinkedIn URL" />
+          </div>
+
+          <div class="form-group">
+            <label for="cmsg">Cover Note</label>
+            <textarea id="cmsg" name="message" rows="4" placeholder="Tell us a bit about yourself and why you'd be a great fit…" data-required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;gap:.6rem;">
+            <span>Submit Application</span><i class="fas fa-paper-plane"></i>
+          </button>
+
+          <div class="alert-success" style="display:none;margin-top:1rem;">
+            <i class="fas fa-check-circle"></i> Application received! We'll be in touch within 5 business days.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container" style="text-align:center;">
+      <h2 class="heading-lg" style="color:#fff;margin-bottom:.75rem;">Have a different question?</h2>
+      <p style="color:rgba(255,255,255,.8);margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto;">Our HR team is happy to answer any queries about the hiring process, benefits, or working culture.</p>
+      <a href="contact.html" class="btn btn-outline-dark">Contact HR <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-grid container">
+      <div class="footer-brand">
+        <div class="logo-wrap" style="margin-bottom:1rem;">
+          <div class="logo-icon">AIS</div>
+          <div class="logo-text">
+            <span class="logo-name">Aarvi IT Solutions</span>
+            <span class="logo-tag">Technology Partner</span>
+          </div>
+        </div>
+        <p>We design, develop, and maintain software that powers businesses across India. Your growth is our mission.</p>
+        <p style="margin-top:.75rem;color:var(--accent);font-size:.85rem;"><i class="fas fa-calendar-check"></i> Serving clients since 2017</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#development">Custom Software</a></li>
+          <li><a href="services.html#amc">AMC &amp; Support</a></li>
+          <li><a href="services.html#itsupport">IT Support</a></li>
+          <li><a href="services.html">All Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul class="footer-contact-list">
+          <li><i class="fas fa-map-marker-alt"></i><span>Hyderabad, Telangana, India &ndash; 500032</span></li>
+          <li><i class="fas fa-phone-alt"></i><a href="tel:+917075995474">+91 7075995474</a></li>
+          <li><i class="fas fa-envelope"></i><a href="mailto:sales@aarviitsolutions.com">sales@aarviitsolutions.com</a></li>
+          <li><i class="fas fa-clock"></i><span>Mon&ndash;Sat, 9 AM &ndash; 6 PM</span></li>
+        </ul>
+        <div class="footer-social" style="margin-top:1rem;">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Aarvi IT Solutions. All rights reserved. | <a href="terms.html">Terms &amp; Conditions</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/917075995474" class="whatsapp-fab" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
