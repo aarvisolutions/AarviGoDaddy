@@ -1,158 +1,203 @@
-/* =====================================================
-   Aarvi Solutions – Contact Page Script
-   ===================================================== */
+/* ============================================================
+   Aarvi Solutions IT Services – Shared Script
+   ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── Sticky header shadow ── */
+  /* ── 1. Sticky Header ── */
   const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    header.style.boxShadow = window.scrollY > 10
-      ? '0 2px 18px rgba(0,0,0,.15)'
-      : '0 2px 12px rgba(0,0,0,.08)';
-  });
+  if (header) {
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
 
-  /* ── Mobile hamburger ── */
+  /* ── 2. Mobile Nav ── */
   const hamburger = document.getElementById('hamburger');
-  const nav       = document.getElementById('nav');
-
-  hamburger.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    hamburger.classList.toggle('open', open);
-    hamburger.setAttribute('aria-expanded', open);
-  });
-
-  // Close nav when a link is clicked
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
+  const navLinks  = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen);
     });
-  });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+    document.addEventListener('click', e => {
+      if (header && !header.contains(e.target)) {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      }
+    });
+  }
 
-  // Close nav on outside click
-  document.addEventListener('click', (e) => {
-    if (!header.contains(e.target)) {
-      nav.classList.remove('open');
-      hamburger.classList.remove('open');
-      hamburger.setAttribute('aria-expanded', false);
+  /* ── 3. Active Nav Link ── */
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+      a.classList.add('active');
     }
   });
 
-  /* ── Back to Top ── */
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', () => {
-    backToTop.classList.toggle('visible', window.scrollY > 400);
-  });
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  /* ── Contact Form Validation & Submission ── */
-  const form        = document.getElementById('contactForm');
-  const successBox  = document.getElementById('formSuccess');
-
-  const rules = {
-    firstName : { required: true, minLen: 2,  label: 'First name' },
-    lastName  : { required: true, minLen: 2,  label: 'Last name'  },
-    email     : { required: true, isEmail: true, label: 'Email'   },
-    phone     : { required: true, isPhone: true, label: 'Phone'   },
-    subject   : { required: true, minLen: 4,  label: 'Subject'    },
-    message   : { required: true, minLen: 10, label: 'Message'    },
-  };
-
-  function validateEmail(v) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-  }
-  function validatePhone(v) {
-    return /^[\d\s\+\-\(\)]{7,15}$/.test(v.trim());
+  /* ── 4. Back to Top ── */
+  const backTop = document.getElementById('backTop');
+  if (backTop) {
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('show', window.scrollY > 400);
+    }, { passive: true });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
 
-  function validateField(id) {
-    const rule  = rules[id];
-    if (!rule) return true;
-    const field = document.getElementById(id);
-    const errEl = document.getElementById(id + 'Error');
+  /* ── 5. Scroll-reveal (IntersectionObserver) ── */
+  if ('IntersectionObserver' in window) {
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.animate-up, .animate-fade').forEach(el => revealObs.observe(el));
+  } else {
+    // Fallback – show all
+    document.querySelectorAll('.animate-up, .animate-fade').forEach(el => el.classList.add('in-view'));
+  }
+
+  /* ── 6. Animated Counters ── */
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length) {
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObs.observe(c));
+  }
+
+  function animateCounter(el) {
+    const target   = parseInt(el.dataset.count, 10);
+    const suffix   = el.dataset.suffix || '';
+    const duration = 1800;
+    const step     = 16;
+    const increment = target / (duration / step);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(current) + suffix;
+    }, step);
+  }
+
+  /* ── 7. Smooth Scroll for anchor links ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        const offset = (header ? header.offsetHeight : 0) + 16;
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* ── 8. Contact / Application Form Validation ── */
+  const forms = document.querySelectorAll('[data-validate]');
+  forms.forEach(form => {
+    const fields  = form.querySelectorAll('[data-required]');
+    const success = form.querySelector('.alert-success');
+    const btn     = form.querySelector('[type="submit"]');
+
+    fields.forEach(field => {
+      field.addEventListener('blur', () => validateField(field));
+      field.addEventListener('input', () => {
+        if (field.classList.contains('input-invalid')) validateField(field);
+      });
+    });
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let valid = true;
+      fields.forEach(f => { if (!validateField(f)) valid = false; });
+      if (!valid) {
+        const first = form.querySelector('.input-invalid');
+        if (first) first.focus();
+        return;
+      }
+      // Simulate sending
+      if (btn) {
+        const origText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending…';
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.innerHTML = origText;
+          form.reset();
+          fields.forEach(f => f.classList.remove('input-valid', 'input-invalid'));
+          if (success) {
+            success.classList.add('show');
+            setTimeout(() => success.classList.remove('show'), 7000);
+          }
+        }, 1800);
+      }
+    });
+  });
+
+  function validateField(field) {
+    const errEl = field.parentElement.querySelector('.err-msg');
     const val   = field.value.trim();
     let   msg   = '';
 
-    if (rule.required && !val)              msg = `${rule.label} is required.`;
-    else if (rule.minLen && val.length < rule.minLen) msg = `${rule.label} must be at least ${rule.minLen} characters.`;
-    else if (rule.isEmail && !validateEmail(val))     msg = 'Please enter a valid email address.';
-    else if (rule.isPhone && !validatePhone(val))     msg = 'Please enter a valid phone number.';
+    if (!val) {
+      msg = `This field is required.`;
+    } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+      msg = 'Please enter a valid email address.';
+    } else if (field.type === 'tel' && !/^[\d\s\+\-\(\)]{7,15}$/.test(val)) {
+      msg = 'Please enter a valid phone number.';
+    }
 
     if (errEl) errEl.textContent = msg;
-    field.classList.toggle('invalid', !!msg);
-    field.classList.toggle('valid',   !msg && !!val);
+    field.classList.toggle('input-invalid', !!msg);
+    field.classList.toggle('input-valid',   !msg);
     return !msg;
   }
 
-  // Live validation on blur
-  Object.keys(rules).forEach(id => {
-    const field = document.getElementById(id);
-    if (field) {
-      field.addEventListener('blur', () => validateField(id));
-      field.addEventListener('input', () => {
-        if (field.classList.contains('invalid')) validateField(id);
-      });
-    }
+  /* ── 9. Testimonial Slider (simple auto-rotate on mobile) ── */
+  const sliders = document.querySelectorAll('[data-slider]');
+  sliders.forEach(slider => {
+    const items = slider.querySelectorAll('.slide-item');
+    if (items.length <= 1) return;
+    let idx = 0;
+    const show = (i) => {
+      items.forEach((item, j) => item.style.display = (j === i ? 'block' : 'none'));
+    };
+    show(0);
+    setInterval(() => { idx = (idx + 1) % items.length; show(idx); }, 5000);
   });
 
-  // Submit handler
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const allValid = Object.keys(rules).map(id => validateField(id)).every(Boolean);
-
-    if (!allValid) {
-      // Scroll to first error
-      const firstInvalid = form.querySelector('.invalid');
-      if (firstInvalid) firstInvalid.focus();
-      return;
-    }
-
-    // Simulate submission (replace with real fetch/AJAX in production)
-    const btn = form.querySelector('.btn-submit');
-    const txt = btn.querySelector('.btn-text');
-    const ico = btn.querySelector('i');
-
-    btn.disabled = true;
-    txt.textContent = 'Sending…';
-    ico.className = 'fas fa-circle-notch fa-spin';
-
-    setTimeout(() => {
-      btn.disabled = false;
-      txt.textContent = 'Send Message';
-      ico.className = 'fas fa-paper-plane';
-      form.reset();
-      // Remove valid/invalid classes
-      form.querySelectorAll('input, textarea, select').forEach(el => {
-        el.classList.remove('valid', 'invalid');
-      });
-      successBox.classList.add('show');
-      setTimeout(() => successBox.classList.remove('show'), 6000);
-    }, 1800);
-  });
-
-  /* ── Animate info cards on scroll ── */
-  const cards = document.querySelectorAll('.info-card, .gov-grid a');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity    = '1';
-          entry.target.style.transform  = 'translateY(0)';
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    cards.forEach((card, i) => {
-      card.style.opacity   = '0';
-      card.style.transform = 'translateY(24px)';
-      card.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
-      observer.observe(card);
+  /* ── 10. Stagger child animations ── */
+  document.querySelectorAll('[data-stagger]').forEach(parent => {
+    const children = parent.children;
+    Array.from(children).forEach((child, i) => {
+      child.classList.add('animate-up');
+      child.style.transitionDelay = `${i * 0.1}s`;
     });
-  }
+  });
 
 });
